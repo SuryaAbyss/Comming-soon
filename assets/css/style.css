@@ -137,6 +137,26 @@ body{
     }
 }
 
+@keyframes subtitleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
 @keyframes textFadeIn {
     0% {
         opacity: 0;
@@ -440,6 +460,36 @@ html {
 .banner__content {
     position: relative;
     z-index: 3;
+}
+
+.banner__subtitle {
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: subtitleFadeIn 1.5s ease-out 0.2s forwards, subtitleFloat 5s ease-in-out 1.5s infinite;
+    cursor: default;
+    transition: all 0.3s ease;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.banner__subtitle:hover {
+    transform: translateY(-3px) scale(1.05);
+    text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 699px) {
+    .banner__subtitle {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 /* Responsive adjustments */
